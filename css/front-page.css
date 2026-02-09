@@ -4,4 +4,10 @@ section {
 
 .hero {
   background-color: var(--primary-color);
+  height: 600px;
+  padding-top: 100px;
+}
+
+.a-propos {
+  background-color: var(--dark-neutral);
 }

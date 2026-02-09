@@ -58,6 +58,11 @@ a {
   color: var(--dark-neutral);
 }
 
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -67,14 +72,16 @@ body {
 
 /* Header */
 template-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  background-color: var(--dark-neutral);
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
   border-radius: 0 0 30px 30px;
+  box-sizing: border-box;
+  background-color: var(--dark-neutral);
 }
 
 nav {
@@ -97,6 +104,7 @@ template-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .footer-contenu {
