@@ -6,9 +6,9 @@ class TemplateHeader extends HTMLElement {
 
     </figure>
     <nav>
-      <a href="index.html">Accueil</a>
-      <a href="projets.html">Projets</a>
-      <a href="a-propos.html">À propos</a>
+      <a href="index.html" id="btn-accueil" class="btn"></a>
+      <a href="projets.html" id="btn-projets" class="btn"></a>
+      <a href="a-propos.html" id="btn-a-propos" class="btn"></a>
       <a href="contact.html">Contact</a>
     </nav>
     `;
