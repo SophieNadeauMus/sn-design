@@ -3,7 +3,7 @@ class TemplateHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <figure class="logo">
-
+      <img src="../image/logo-grand.png" alt="Logo de SN Design">
     </figure>
     <nav>
       <a href="index.html" id="btn-accueil" class="btn"></a>

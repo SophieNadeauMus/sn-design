@@ -85,6 +85,17 @@ template-header {
   background-color: var(--dark-neutral);
 }
 
+.logo {
+  height: 100px;
+  width: 100px;
+  margin: 0;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+}
+
 nav {
   display: flex;
   column-gap: 20px;
