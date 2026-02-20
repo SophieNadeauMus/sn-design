@@ -62,4 +62,8 @@ body {
   .hero {
     flex-direction: column;
   }
+
+  .a-propos {
+    flex-direction: column;
+  }
 }

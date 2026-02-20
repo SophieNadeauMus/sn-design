@@ -2,14 +2,36 @@
 class TemplateHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <div id="logo-animation"></div>
+    <a href="index.html" id="logo-animation"></a>
     <nav>
       <a href="index.html" id="btn-accueil" class="btn"></a>
       <a href="projets.html" id="btn-projets" class="btn"></a>
       <a href="a-propos.html" id="btn-a-propos" class="btn"></a>
       <a href="contact.html" id="btn-contact" class="btn"></a>
     </nav>
+    <a class="menu-icon">
+      <i class="fa-solid fa-bars"></i>
+    </a>
     `;
+
+    // Ouverture du menu mobile
+    const menuIcon = this.querySelector('.menu-icon');
+    const nav = this.querySelector('nav');
+
+    menuIcon.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      document.body.classList.toggle('menu-ouvert');
+    });
+
+    // Fermeture du menu mobile lorsque l'on clique sur un lien
+    const liens = this.querySelectorAll("nav a");
+
+    liens.forEach(lien => {
+      lien.addEventListener("click", () => {
+        nav.classList.remove("active");
+        document.body.classList.remove("menu-ouvert");
+      });
+    });
   }
 }
 
