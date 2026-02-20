@@ -1,13 +1,65 @@
-section {
-  padding: 0 50px;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* Section hero contenant l'animation et le titre principal */
 .hero {
   background-color: var(--primary-color);
-  height: 600px;
-  padding-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+  overflow: hidden;
+  padding: 170px 100px 0;
+  min-height: 700px;
 }
 
+.hero-titre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--light-neutral);
+}
+
+#hero-animation {
+  width: 50vw;
+  max-width: 600px;
+}
+
+#hero-animation svg {
+  height: 100%;
+}
+
+.wave-divider {
+  aspect-ratio: 1440 / 320;
+}
+.wave-divider path {
+  fill: var(--primary-color);
+}
+
+/* Section à propos */
 .a-propos {
-  background-color: var(--dark-neutral);
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.a-propos .contenu-gauche {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.a-propos img {
+  width: 300px;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
 }

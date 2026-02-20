@@ -21,10 +21,11 @@
 h1, h2, h3, h4, h5, p, a {
   font-family: var(--font-family);
   font-weight: 500;
+  margin: 0;
 }
 
 h1 {
-  font-size: 3.813rem;
+  font-size: 5.61rem;
   line-height: var(--line-height-titles);
 }
 
@@ -59,9 +60,14 @@ a {
   color: var(--dark-neutral);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
-  box-sizing: border-box;
 }
 
 body {
@@ -69,6 +75,14 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: var(--light-neutral);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+section:not(.hero, .hero-projets) {
+  padding: 50px 100px;
 }
 
 /* Header */
@@ -83,17 +97,13 @@ template-header {
   border-radius: 0 0 30px 30px;
   box-sizing: border-box;
   background-color: var(--dark-neutral);
+  z-index: 1000;
 }
 
-.logo {
-  height: 100px;
-  width: 100px;
+#logo-animation {
+  height: 80px;
+  width: 80px;
   margin: 0;
-}
-
-.logo img {
-  height: 100%;
-  width: auto;
 }
 
 nav {

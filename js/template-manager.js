@@ -2,14 +2,12 @@
 class TemplateHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <figure class="logo">
-      <img src="../image/logo-grand.png" alt="Logo de SN Design">
-    </figure>
+    <div id="logo-animation"></div>
     <nav>
       <a href="index.html" id="btn-accueil" class="btn"></a>
       <a href="projets.html" id="btn-projets" class="btn"></a>
       <a href="a-propos.html" id="btn-a-propos" class="btn"></a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" id="btn-contact" class="btn"></a>
     </nav>
     `;
   }
