@@ -2,7 +2,7 @@
 class TemplateHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <a href="index.html" id="logo-animation"></a>
+    <a href="index.html" class="logo-animation"></a>
     <nav>
       <a href="index.html" id="btn-accueil" class="btn"></a>
       <a href="projets.html" id="btn-projets" class="btn"></a>
@@ -39,12 +39,12 @@ class TemplateFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="footer-contenu">
-      <figure></figure>
+      <a href="index.html" class="logo-animation"></a>
       <button>Restons connectés!</button>
       <div class="reseaux-sociaux">
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
+        <a href="#" id="icone-linkedin"></a>
+        <a href="#" id="icone-github"></a>
+        <a href="#" id="icone-behance"></a>
       </div>
     </div>
     <p>© 2026 SN Design. Tous droits réservés.</p>

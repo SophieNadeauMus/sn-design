@@ -85,7 +85,7 @@ section:not(.hero, .hero-projets) {
   padding: 50px 100px;
 }
 
-/* Header */
+/***** Styles du header *****/
 template-header {
   position: fixed;
   top: 0;
@@ -100,7 +100,7 @@ template-header {
   z-index: 999;
 }
 
-#logo-animation {
+.logo-animation {
   height: 80px;
   width: 80px;
   margin: 0;
@@ -124,7 +124,7 @@ nav a {
   color: var(--light-neutral);
 }
 
-/* Footer */
+/***** styles pour le footer *****/
 template-footer {
   background-color: var(--dark-neutral);
   padding: 20px 50px;
@@ -132,13 +132,16 @@ template-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  row-gap: 20px;
   box-sizing: border-box;
 }
 
 .footer-contenu {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 template-footer button {
@@ -149,11 +152,24 @@ template-footer button {
   color: var(--light-neutral);
   cursor: pointer;
   font-size: var(--h5-size);
+  align-self: center;
 }
 
 .reseaux-sociaux {
   display: flex;
-  column-gap: 20px;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.reseaux-sociaux a {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+template-footer p {
+  color: var(--light-neutral);
+  font-weight: lighter;
 }
 
 /* Éviter le scroll lorsque le menu est ouvert */

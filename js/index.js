@@ -1,14 +1,19 @@
-// Animation du logo
-var logoAnimation = lottie.loadAnimation({
-  container: document.getElementById('logo-animation'),
-  renderer: 'svg',
-  loop: false,
-  autoplay: true,
-  path: 'lottie/logo-animation.json',
+/***** Animation du logo *****/
+const logoAnimation = [];
+
+document.querySelectorAll('.logo-animation').forEach(conteneur => {
+  const anim = lottie.loadAnimation({
+    container: conteneur,
+    renderer: 'svg',
+    loop: false,
+    autoplay: true,
+    path: 'lottie/logo-animation.json'
+  });
+  logoAnimation.push(anim);
 });
 
-// Animation des boutons
-var btnAnimation = lottie.loadAnimation({
+/*****  Animation des boutons *****/
+var btnAccueil = lottie.loadAnimation({
   container: document.getElementById('btn-accueil'),
   renderer: 'svg',
   loop: true,
@@ -17,10 +22,10 @@ var btnAnimation = lottie.loadAnimation({
 });
 // Animation du bouton lorsque la souris hover dessus
 document.getElementById('btn-accueil').addEventListener('mouseenter', function() {
-  btnAnimation.play();
+  btnAccueil.play();
 });
 document.getElementById('btn-accueil').addEventListener('mouseleave', function() {
-  btnAnimation.stop();
+  btnAccueil.stop();
 });
 
 var btnProjets = lottie.loadAnimation({
@@ -68,11 +73,50 @@ document.getElementById('btn-contact').addEventListener('mouseleave', function()
   btnContact.stop();
 });
 
-// Animation de la zone hero
+/***** Animation des icônes de réseaux sociaux *****/
+const icones = [
+  lottie.loadAnimation({
+    container: document.getElementById('icone-linkedin'),
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'lottie/icone-linkedin.json',
+  }),
+  lottie.loadAnimation({
+    container: document.getElementById('icone-github'),
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'lottie/icone-github.json',
+  }),
+  lottie.loadAnimation({
+    container: document.getElementById('icone-behance'),
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'lottie/icone-behance.json',
+  }),
+];
+setInterval(() => {
+  icones.forEach(icone => {
+    icone.goToAndPlay(0, true);
+  });
+}, 5000); // Rejoue les animations toutes les 5 secondes
+
+/****** Animation de la section hero *****/
 var heroAnimation = lottie.loadAnimation({
   container: document.getElementById('hero-animation'),
   renderer: 'svg',
   loop: true,
   autoplay: true,
   path: 'lottie/hero-animation.json',
+});
+
+/***** Animation de la section projets *****/
+var projetsAnimation = lottie.loadAnimation({
+  container: document.getElementById('projets-animation'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'lottie/projets-animation.json',
 });
