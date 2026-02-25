@@ -6,15 +6,72 @@ body {
 
 /* Section hero contenant l'animation et le titre principal */
 .hero {
-  background-color: var(--primary-color);
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   gap: 50px;
   overflow: hidden;
-  padding: 170px 100px 0;
+  padding: 170px 100px 50px;
   min-height: 700px;
+
+  background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    var(--primary-color)
+  );
+}
+
+/* Permet de garder le contenu au-dessus des éléments animés */
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* BLOBS ANIMÉS */
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: clamp(300px, 45vw, 750px);
+  height: clamp(300px, 45vw, 750px);
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.hero::before {
+  background: var(--accent-color-secondary);
+  top: -10%;
+  left: -10px;
+  animation: premierBlob 10s linear infinite;
+}
+
+.hero::after {
+  background: var(--light-neutral);
+  bottom: -20%;
+  right: -15%;
+  animation: deuxiemeBlob 13s linear infinite;
+}
+
+/* Animation des blobs séparés pour un mouvement plus aléatoire */
+@keyframes premierBlob {
+  0%   { transform: translate(0%, 0%) scale(1) rotate(0deg); }
+  25%  { transform: translate(20%, 10%) scale(1.1) rotate(8deg); }
+  50%  { transform: translate(10%, 25%) scale(1.15) rotate(15deg); }
+  75%  { transform: translate(-10%, 15%) scale(1.08) rotate(10deg); }
+  100% { transform: translate(0%, 0%) scale(1) rotate(0deg); }
+}
+
+@keyframes deuxiemeBlob {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  30%  { transform: translate(-15%, -20%) scale(1.1); }
+  60%  { transform: translate(-5%, -30%) scale(1.15); }
+  80%  { transform: translate(-20%, -10%) scale(1.05); }
+  100% { transform: translate(0%, 0%) scale(1); }
 }
 
 .hero-titre {
@@ -22,6 +79,7 @@ body {
   flex-direction: column;
   justify-content: center;
   color: var(--light-neutral);
+  width: 50vw;
 }
 
 #hero-animation {
@@ -33,29 +91,54 @@ body {
   height: 100%;
 }
 
-.wave-divider {
-  aspect-ratio: 1440 / 320;
-}
-.wave-divider path {
-  fill: var(--primary-color);
+/***** Section à propos *****/
+.a-propos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 
-/* Section à propos */
-.a-propos {
+.a-propos-contenu {
   display: flex;
   align-items: center;
   gap: 50px;
 }
 
-.a-propos .contenu-gauche {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.a-propos img {
+  width: clamp(200px, 40vw, 400px);
+  height: auto;
+  border-radius: 30px;
+
 }
 
-.a-propos img {
-  width: 300px;
+/* Section projets principaux */
+.projets-principaux {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+}
+
+.liste-projets {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 30px;
+}
+
+.projet {
+  flex: 0 0 auto;
+  background-color: var(--accent-color);
+}
+
+.projet img {
+  width: 100%;
   height: auto;
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -63,7 +146,19 @@ body {
     flex-direction: column;
   }
 
-  .a-propos {
+  .hero::before,
+  .hero::after {
+    filter: blur(80px);
+    opacity: 0.45;
+  }
+
+  .hero-titre {
+    width: 100%;
+  }
+
+  .a-propos-contenu {
     flex-direction: column;
+    gap: 30px;
+    width: 90%;
   }
 }

@@ -3,8 +3,10 @@
   /* Couleurs */
   --primary-color: #B4AEFF;
   --accent-color: #8C83FF;
+  --accent-color-secondary: #F49F0A;
   --light-neutral: #EDEDF7;
   --dark-neutral: #1F1F25;
+  --color-opacity: 0.95;
   /* Typographie */
   --font-family: "Bricolage Grotesque", sans-serif;
   --h1-size: 3.813rem;
@@ -50,7 +52,7 @@ h5 {
 }
 
 p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: var(--line-height-text);
 }
 
@@ -82,7 +84,9 @@ body {
 }
 
 section:not(.hero, .hero-projets) {
-  padding: 50px 100px;
+  width: 80vw;
+  margin: 0 auto;
+  padding: 50px 0;
 }
 
 /***** Styles du header *****/
@@ -96,7 +100,7 @@ template-header {
   padding: 20px 50px;
   border-radius: 0 0 30px 30px;
   box-sizing: border-box;
-  background-color: var(--dark-neutral);
+  background-color: rgb(from var(--dark-neutral) r g b / var(--color-opacity));
   z-index: 999;
 }
 
@@ -118,6 +122,14 @@ nav a {
   text-decoration: none;
 }
 
+.btn {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: 40px;
+}
+
+/* menu burger caché sur grands écrans */
 .menu-icon {
   display: none;
   font-size: 36px;
@@ -139,12 +151,21 @@ template-footer {
 .footer-contenu {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-template-footer button {
+/* Forcer les éléments à occuper le même espace */
+.footer-contenu > * {
+  flex: 1; 
+}
+
+.footer-contenu .logo-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footer-contenu button {
   background-color: var(--accent-color);
   padding: 10px 32px;
   border-radius: 24px;
@@ -152,12 +173,12 @@ template-footer button {
   color: var(--light-neutral);
   cursor: pointer;
   font-size: var(--h5-size);
-  align-self: center;
+  margin: 0 auto;
 }
 
 .reseaux-sociaux {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   column-gap: 10px;
 }
 
@@ -213,5 +234,17 @@ body.menu-ouvert {
   template-footer .footer-contenu {
     flex-direction: column;
     row-gap: 20px;
+  }
+
+  .footer-contenu > * {
+    flex: none; 
+    width: 100%;
+    display: flex;
+    flex: row;
+    justify-content: center;
+  }
+
+  .footer-contenu .logo-container {
+    justify-content: center;
   }
 }

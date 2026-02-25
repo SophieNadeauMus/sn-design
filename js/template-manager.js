@@ -39,7 +39,9 @@ class TemplateFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="footer-contenu">
-      <a href="index.html" class="logo-animation"></a>
+      <div class="logo-container">
+        <a href="index.html" class="logo-animation"></a>
+      </div>
       <button>Restons connectés!</button>
       <div class="reseaux-sociaux">
         <a href="#" id="icone-linkedin"></a>
