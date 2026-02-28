@@ -73,6 +73,31 @@ document.getElementById('btn-contact').addEventListener('mouseleave', function()
   btnContact.stop();
 });
 
+// Animation du bouton "En voir plus" qui amène à la section projets
+var btnVoirPlus = lottie.loadAnimation({
+  container: document.getElementById('btn-voir-plus'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: false,
+  path: 'lottie/btn-voir-plus.json',
+});
+document.getElementById('btn-voir-plus').addEventListener('mouseenter', function() {
+  btnVoirPlus.play();
+});
+document.getElementById('btn-voir-plus').addEventListener('mouseleave', function() {
+  btnVoirPlus.stop();
+});
+
+/***** Animation du bouton "Restons connectés!" *****/
+var btnConnecte = lottie.loadAnimation({
+  container: document.getElementById('btn-connecte'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true, 
+  path: 'lottie/btn-connecte.json',
+});
+btnConnecte.setSpeed(0.5); // Ralentit l'animation
+
 /***** Animation des icônes de réseaux sociaux *****/
 const icones = [
   lottie.loadAnimation({

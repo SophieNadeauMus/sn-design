@@ -15,63 +15,29 @@ body {
   overflow: hidden;
   padding: 170px 100px 50px;
   min-height: 700px;
-
-  background: linear-gradient(
-    135deg,
-    var(--accent-color),
-    var(--primary-color)
-  );
+  background: radial-gradient(circle at center, var(--accent-color-secondary), var(--accent-color) 15%, transparent 70%), var(--accent-color);
+  background-size: 400% 400%;
+  backdrop-filter: blur(20px);
+  animation: pointGradient 20s linear infinite; 
 }
 
-/* Permet de garder le contenu au-dessus des éléments animés */
-.hero > * {
-  position: relative;
-  z-index: 2;
-}
-
-/* BLOBS ANIMÉS */
-
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  width: clamp(300px, 45vw, 750px);
-  height: clamp(300px, 45vw, 750px);
-  border-radius: 50%;
-  filter: blur(110px);
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-.hero::before {
-  background: var(--accent-color-secondary);
-  top: -10%;
-  left: -10px;
-  animation: premierBlob 10s linear infinite;
-}
-
-.hero::after {
-  background: var(--light-neutral);
-  bottom: -20%;
-  right: -15%;
-  animation: deuxiemeBlob 13s linear infinite;
-}
-
-/* Animation des blobs séparés pour un mouvement plus aléatoire */
-@keyframes premierBlob {
-  0%   { transform: translate(0%, 0%) scale(1) rotate(0deg); }
-  25%  { transform: translate(20%, 10%) scale(1.1) rotate(8deg); }
-  50%  { transform: translate(10%, 25%) scale(1.15) rotate(15deg); }
-  75%  { transform: translate(-10%, 15%) scale(1.08) rotate(10deg); }
-  100% { transform: translate(0%, 0%) scale(1) rotate(0deg); }
-}
-
-@keyframes deuxiemeBlob {
-  0%   { transform: translate(0%, 0%) scale(1); }
-  30%  { transform: translate(-15%, -20%) scale(1.1); }
-  60%  { transform: translate(-5%, -30%) scale(1.15); }
-  80%  { transform: translate(-20%, -10%) scale(1.05); }
-  100% { transform: translate(0%, 0%) scale(1); }
+/* Animation du fond de la section hero */
+@keyframes pointGradient {
+  0% {
+    background-position: 60% 60%;
+  }
+  25% {
+    background-position: 40% 40%;
+  }
+  50% {
+    background-position: 45% 60%;
+  }
+  75% {
+    background-position: 60% 40%;
+  }
+  100% {
+    background-position: 60% 60%;
+  }
 }
 
 .hero-titre {
@@ -107,38 +73,21 @@ body {
 }
 
 .a-propos img {
-  width: clamp(200px, 40vw, 400px);
-  height: auto;
+  width: 300px;
+  height: 300px;
   border-radius: 30px;
-
 }
 
-/* Section projets principaux */
-.projets-principaux {
+/* Section des projets récents */
+.projets-recents {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
   gap: 30px;
 }
 
-.liste-projets {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 30px;
-}
-
-.projet {
-  flex: 0 0 auto;
-  background-color: var(--accent-color);
-}
-
-.projet img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
+#btn-voir-plus {
+  width: 200px;
 }
 
 @media screen and (max-width: 768px) {

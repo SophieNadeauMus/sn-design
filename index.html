@@ -26,31 +26,17 @@
   <section class="a-propos">
     <h2>À propos</h2>
     <div class="a-propos-contenu">
-    <img src="images/a-propos.png" alt="Logo SN Design">
+    <img src="images/a-propos.webp" alt="Photo de Sophie Nadeau">
     <p>Designer numérique basée à Montréal, je crée des interfaces centrées sur l’utilisateur avec une approche à la fois créative et technique. Ma formation en intégration multimédia me permet d’aller au-delà du visuel et de penser aussi à la performance et à l’intégration.</p>
     </div>
   </section>
-  <section class="projets-principaux">
-    <h2>Projets principaux</h2>
-    <div class="liste-projets">
-      <div class="projet">
-        <img src="images/projet1.png" alt="Projet 1">
-        <h3>Projet 1</h3>
-        <p>Description du projet 1.</p>
-      </div>
-      <div class="projet">
-        <img src="images/projet2.png" alt="Projet 2">
-        <h3>Projet 2</h3>
-        <p>Description du projet 2.</p>
-      </div>
-      <div class="projet">
-        <img src="images/projet3.png" alt="Projet 3">
-        <h3>Projet 3</h3>
-        <p>Description du projet 3.</p>
-      </div>
-    </div>
+  <section class="projets-recents">
+    <h2>Projets récents</h2>
+    <template-projets limite="3"></template-projets>
+    <a href="projets.html" id="btn-voir-plus"></a>
   </section>
   <template-footer></template-footer>
+  <script src="js/projets.js"></script>
   <script src="js/template-manager.js"></script>
   <script src="js/lottie.js"></script>
   <script src="js/index.js"></script>

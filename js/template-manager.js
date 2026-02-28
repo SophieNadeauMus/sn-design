@@ -42,7 +42,7 @@ class TemplateFooter extends HTMLElement {
       <div class="logo-container">
         <a href="index.html" class="logo-animation"></a>
       </div>
-      <button>Restons connectés!</button>
+      <div id="btn-connecte"></div>  
       <div class="reseaux-sociaux">
         <a href="#" id="icone-linkedin"></a>
         <a href="#" id="icone-github"></a>
@@ -54,5 +54,42 @@ class TemplateFooter extends HTMLElement {
   }
 }
 
+// Section pour afficher les projets (utilisée sur la page d'accueil et la page projets)
+class TemplateProjets extends HTMLElement {
+  connectedCallback() {
+
+    // Nombre de projets à afficher (si attribut présent)
+    const limite = this.getAttribute("limite");
+
+    // Si limite existe -> on coupe le tableau
+    const projetsAAfficher = limite 
+      ? projetsData.slice(0, limite) 
+      : projetsData;
+
+    this.innerHTML = `
+    <section class="projets">
+      ${projetsAAfficher.map(projet => `
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="${projet.image}" alt="${projet.titre}">
+          </div>
+          <div class="flip-card-back">
+            <h3>${projet.titre}</h3>
+            <p class="projet-desc">${projet.description}</p>
+            <div> 
+              <p>${projet.logiciels}</p>
+              <p>${projet.date}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      `).join('')}
+    </section>
+    `;
+  }
+}
+
 customElements.define('template-header', TemplateHeader);
 customElements.define('template-footer', TemplateFooter);
+customElements.define('template-projets', TemplateProjets);
