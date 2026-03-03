@@ -2,19 +2,19 @@
 class TemplateHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <a href="index.html" class="logo-animation"></a>
+    <a href="index.html" class="logo-animation" alt="Logo de SN Design"></a>
     <nav>
-      <a href="index.html" id="btn-accueil" class="btn"></a>
-      <a href="projets.html" id="btn-projets" class="btn"></a>
-      <a href="a-propos.html" id="btn-a-propos" class="btn"></a>
-      <a href="contact.html" id="btn-contact" class="btn"></a>
+      <a href="index.html" id="btn-accueil" class="btn" alt="Bouton Accueil"></a>
+      <a href="projets.html" id="btn-projets" class="btn" alt="Bouton Projets"></a>
+      <a href="a-propos.html" id="btn-a-propos" class="btn" alt="Bouton À propos"></a>
+      <a href="contact.html" id="btn-contact" class="btn" alt="Bouton Contact"></a>
     </nav>
     <a class="menu-icon">
       <i class="fa-solid fa-bars"></i>
     </a>
     `;
 
-    // Ouverture du menu mobile
+    /***** MENU MOBILE *****/ 
     const menuIcon = this.querySelector('.menu-icon');
     const nav = this.querySelector('nav');
 
@@ -32,6 +32,18 @@ class TemplateHeader extends HTMLElement {
         document.body.classList.remove("menu-ouvert");
       });
     });
+
+    // Calcul dynamique de la hauteur du header pour éviter que le contenu soit caché derrière
+    this.updateHeaderHeight();
+    window.addEventListener('resize', () => this.updateHeaderHeight());
+  }
+
+  // Met à jour la variable CSS --header-height avec la hauteur actuelle du header
+  updateHeaderHeight() {
+    const height = this.offsetHeight;
+    document.documentElement
+      .style
+      .setProperty('--header-height', `${height}px`);
   }
 }
 
@@ -40,13 +52,13 @@ class TemplateFooter extends HTMLElement {
     this.innerHTML = `
     <div class="footer-contenu">
       <div class="logo-container">
-        <a href="index.html" class="logo-animation"></a>
+        <a href="index.html" class="logo-animation" alt="Logo de SN Design"></a>
       </div>
       <div id="btn-connecte"></div>  
       <div class="reseaux-sociaux">
-        <a href="#" id="icone-linkedin"></a>
-        <a href="#" id="icone-github"></a>
-        <a href="#" id="icone-behance"></a>
+        <a href="#" id="icone-linkedin" alt="LinkedIn"></a>
+        <a href="#" id="icone-github" alt="GitHub"></a>
+        <a href="#" id="icone-behance" alt="Behance"></a>
       </div>
     </div>
     <p>© 2026 SN Design. Tous droits réservés.</p>
@@ -67,7 +79,6 @@ class TemplateProjets extends HTMLElement {
       : projetsData;
 
     this.innerHTML = `
-    <section class="projets">
       ${projetsAAfficher.map(projet => `
       <div class="flip-card">
         <div class="flip-card-inner">
@@ -85,7 +96,6 @@ class TemplateProjets extends HTMLElement {
         </div>
       </div>
       `).join('')}
-    </section>
     `;
   }
 }

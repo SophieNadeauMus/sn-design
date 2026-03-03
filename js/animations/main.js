@@ -73,21 +73,6 @@ document.getElementById('btn-contact').addEventListener('mouseleave', function()
   btnContact.stop();
 });
 
-// Animation du bouton "En voir plus" qui amène à la section projets
-var btnVoirPlus = lottie.loadAnimation({
-  container: document.getElementById('btn-voir-plus'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: false,
-  path: 'lottie/btn-voir-plus.json',
-});
-document.getElementById('btn-voir-plus').addEventListener('mouseenter', function() {
-  btnVoirPlus.play();
-});
-document.getElementById('btn-voir-plus').addEventListener('mouseleave', function() {
-  btnVoirPlus.stop();
-});
-
 /***** Animation du bouton "Restons connectés!" *****/
 var btnConnecte = lottie.loadAnimation({
   container: document.getElementById('btn-connecte'),
@@ -127,21 +112,3 @@ setInterval(() => {
     icone.goToAndPlay(0, true);
   });
 }, 5000); // Rejoue les animations toutes les 5 secondes
-
-/****** Animation de la section hero *****/
-var heroAnimation = lottie.loadAnimation({
-  container: document.getElementById('hero-animation'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'lottie/hero-animation.json',
-});
-
-/***** Animation de la section projets *****/
-var projetsAnimation = lottie.loadAnimation({
-  container: document.getElementById('projets-animation'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'lottie/projets-animation.json',
-});

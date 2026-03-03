@@ -2,7 +2,7 @@
 :root {
   /* Couleurs */
   --primary-color: #B4AEFF;
-  --accent-color: #8C83FF;
+  --accent-color: #7d73ff;
   --accent-color-secondary: #F49F0A;
   --light-neutral: #EDEDF7;
   --dark-neutral: #1F1F25;
@@ -17,6 +17,8 @@
   --p-size: 1rem;
   --line-height-titles: 1.2;
   --line-height-text: 1.6;
+  /* Pour calculer la hauteur du header dynamiquement */
+  --header-height: 0px;
 }
 
 /* Styles généraux */
@@ -83,10 +85,16 @@ body {
   justify-content: space-between;
 }
 
-section:not(.hero, .hero-projets) {
+/* Ajustements des sections */
+section:not(section:first-of-type) {
   width: 80vw;
   margin: 0 auto;
   padding: 50px 0;
+}
+
+section:first-of-type {
+  width: 100%;
+  padding: calc(var(--header-height) + 50px) 50px 50px;
 }
 
 /***** Styles du header *****/
@@ -187,11 +195,12 @@ template-footer p {
 }
 
 /***** Styles pour le template de la liste de projets *****/
-.projets {
+template-projets {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 50px;
   justify-items: center;
+  width: 100%;
 }
 /* Animation des cartes de projets */
 .flip-card {
