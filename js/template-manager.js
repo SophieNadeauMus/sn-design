@@ -2,12 +2,12 @@
 class TemplateHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <a href="index.html" class="logo-animation" alt="Logo de SN Design"></a>
+    <a href="index.html" class="logo-animation" aria-label="Logo de SN Design"></a>
     <nav>
-      <a href="index.html" id="btn-accueil" class="btn" alt="Bouton Accueil"></a>
-      <a href="projets.html" id="btn-projets" class="btn" alt="Bouton Projets"></a>
-      <a href="a-propos.html" id="btn-a-propos" class="btn" alt="Bouton À propos"></a>
-      <a href="contact.html" id="btn-contact" class="btn" alt="Bouton Contact"></a>
+      <a href="index.html" id="btn-accueil" class="btn" aria-label="Bouton Accueil"></a>
+      <a href="projets.html" id="btn-projets" class="btn" aria-label="Bouton Projets"></a>
+      <a href="a-propos.html" id="btn-a-propos" class="btn" aria-label="Bouton À propos"></a>
+      <a href="contact.html" id="btn-contact" class="btn" aria-label="Bouton Contact"></a>
     </nav>
     <a class="menu-icon">
       <i class="fa-solid fa-bars"></i>
@@ -52,13 +52,13 @@ class TemplateFooter extends HTMLElement {
     this.innerHTML = `
     <div class="footer-contenu">
       <div class="logo-container">
-        <a href="index.html" class="logo-animation" alt="Logo de SN Design"></a>
+        <a href="index.html" class="logo-animation" aria-label="Logo de SN Design"></a>
       </div>
       <div id="btn-connecte"></div>  
       <div class="reseaux-sociaux">
-        <a href="#" id="icone-linkedin" alt="LinkedIn"></a>
-        <a href="#" id="icone-github" alt="GitHub"></a>
-        <a href="#" id="icone-behance" alt="Behance"></a>
+        <a href="#" id="icone-linkedin" aria-label="LinkedIn"></a>
+        <a href="#" id="icone-github" aria-label="GitHub"></a>
+        <a href="#" id="icone-behance" aria-label="Behance"></a>
       </div>
     </div>
     <p>© 2026 SN Design. Tous droits réservés.</p>
