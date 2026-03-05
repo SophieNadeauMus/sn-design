@@ -204,6 +204,7 @@ template-projets {
   justify-items: center;
   width: 100%;
 }
+
 /* Animation des cartes de projets */
 .flip-card {
   background-color: transparent;
@@ -237,8 +238,10 @@ template-projets {
 }
 
 .flip-card-front img {
+  max-width: 300px;
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 30px;
 }

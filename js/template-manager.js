@@ -83,7 +83,7 @@ class TemplateProjets extends HTMLElement {
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="${projet.image}" alt="${projet.titre}">
+            <img src="${projet.image}" width="300" height="300" alt="${projet.titre}" fetchpriority="high">
           </div>
           <div class="flip-card-back">
             <h3>${projet.titre}</h3>
