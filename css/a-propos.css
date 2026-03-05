@@ -19,3 +19,9 @@
   z-index: -1;
   background: linear-gradient(to bottom, var(--primary-color), transparent);
 }
+
+.a-propos-contenu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

@@ -9,12 +9,13 @@
   --color-opacity: 0.95;
   /* Typographie */
   --font-family: "Bricolage Grotesque", sans-serif;
-  --h1-size: 3.813rem;
-  --h2-size: 3.063rem;
-  --h3-size: 2.438rem;
-  --h4-size: 1.938rem;
-  --h5-size: 1.563rem;
-  --p-size: 1rem;
+  --h1-size: clamp(3rem, 8vw, 5.61rem);
+  --h2-size: clamp(2rem, 6vw, 3.063rem);
+  --h3-size: clamp(1.75rem, 5vw, 2.438rem);
+  --h4-size: clamp(1.5rem, 4vw, 1.938rem);
+  --h5-size: clamp(1.25rem, 3vw, 1.563rem);
+  --p-size: clamp(1rem, 2vw, 1rem);
+  --small-size: clamp(0.875rem, 1.5vw, 0.875rem);
   --line-height-titles: 1.2;
   --line-height-text: 1.6;
   /* Pour calculer la hauteur du header dynamiquement */
@@ -29,37 +30,37 @@ h1, h2, h3, h4, h5, p, a {
 }
 
 h1 {
-  font-size: 5.61rem;
+  font-size: var(--h1-size);
   line-height: var(--line-height-titles);
 }
 
 h2 {
-  font-size: 3.063rem;
+  font-size: var(--h2-size);
   line-height: var(--line-height-titles);
 }
 
 h3 {
-  font-size: 2.438rem;
+  font-size: var(--h3-size);
   line-height: var(--line-height-titles);
 }
 
 h4 {
-  font-size: 1.938rem;
+  font-size: var(--h4-size);
   line-height: var(--line-height-titles);
 }
 
 h5 {
-  font-size: 1.563rem;
+  font-size: var(--h5-size);
   line-height: var(--line-height-titles);
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: var(--p-size);
   line-height: var(--line-height-text);
 }
 
 a {
-  font-size: 1rem;
+  font-size: var(--p-size);
   line-height: 40px;
   color: var(--dark-neutral);
 }
@@ -152,6 +153,7 @@ template-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   row-gap: 20px;
   box-sizing: border-box;
 }
@@ -197,7 +199,7 @@ template-footer p {
 /***** Styles pour le template de la liste de projets *****/
 template-projets {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 50px;
   justify-items: center;
   width: 100%;
@@ -205,8 +207,9 @@ template-projets {
 /* Animation des cartes de projets */
 .flip-card {
   background-color: transparent;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
   perspective: 1000px;
 }
 
@@ -246,7 +249,7 @@ template-projets {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 20px;
 }
@@ -305,6 +308,15 @@ body.menu-ouvert {
     z-index: 1001;
   }
 
+  section:not(section:first-of-type) {
+    width: 90vw;
+    padding: 30px 0;
+  }
+
+  section:first-of-type {
+    padding: calc(var(--header-height) + 30px) 20px 30px;
+  }
+
   template-footer .footer-contenu {
     flex-direction: column;
     row-gap: 20px;
@@ -320,5 +332,8 @@ body.menu-ouvert {
 
   .footer-contenu .logo-container {
     justify-content: center;
+  }
+  .flip-card-back p {
+    font-size: var(--small-size);
   }
 }
