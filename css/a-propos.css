@@ -24,6 +24,7 @@
 .a-propos-conteneur {
   position: relative;
   width: 100vw!important;
+  max-width: none!important;
   z-index: 1;
 }
 
