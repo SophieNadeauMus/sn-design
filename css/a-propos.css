@@ -20,7 +20,46 @@
   background: linear-gradient(to bottom, var(--primary-color), transparent);
 }
 
+/* Conteneur principal */
+.a-propos-conteneur {
+  position: relative;
+  width: 100vw!important;
+  z-index: 1;
+}
+
+/* Pseudo élément qui reçoit l'effet de flou */
+.a-propos-conteneur::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  /* Effet de flou */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.2);
+  
+  /* Masque de flou progressif */
+  -webkit-mask-image: linear-gradient(
+    to bottom, 
+    transparent, 
+    black 150px, 
+    black calc(100% - 150px), 
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom, 
+    transparent, 
+    black 150px, 
+    black calc(100% - 150px), 
+    transparent
+  );
+}
+
 .a-propos-contenu {
+  width: 80vw;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 30px;
