@@ -140,6 +140,8 @@ nav a {
   padding: 0;
   width: auto;
   height: 40px;
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  user-select: none;
 }
 
 /* Styles du conteneur du menu burger */
@@ -211,6 +213,8 @@ template-footer {
 
 #btn-connecte {
   height: 50px;
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  user-select: none;
 }
 
 .reseaux-sociaux {
@@ -223,6 +227,8 @@ template-footer {
   display: inline-block;
   width: 48px;
   height: 48px;
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  user-select: none;
 }
 
 template-footer p {
