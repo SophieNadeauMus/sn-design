@@ -121,7 +121,7 @@ template-header {
   margin: 0;
   user-select: none;
   outline: none;
-  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight (fond bleu lorsque cliqué) sur mobile */
 }
 
 nav {
@@ -141,7 +141,7 @@ nav a {
   padding: 0;
   width: auto;
   height: 40px;
-  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight (fond bleu lorsque cliqué) sur mobile */
   user-select: none;
 }
 
@@ -156,7 +156,7 @@ nav a {
   height: 36px;
   color: var(--light-neutral);
   z-index: 1001;
-  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight (fond bleu lorsque cliqué) sur mobile */
   user-select: none;
 }
 
@@ -215,7 +215,7 @@ template-footer {
 
 #btn-connecte {
   height: 50px;
-  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight (fond bleu lorsque cliqué) sur mobile */
   user-select: none;
 }
 
@@ -229,7 +229,7 @@ template-footer {
   display: inline-block;
   width: 48px;
   height: 48px;
-  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight (fond bleu lorsque cliqué) sur mobile */
   user-select: none;
 }
 
@@ -340,21 +340,12 @@ template-projets,
   width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  .flip-card:hover .flip-card-inner {
-    transform: none; /* Désactiver l'effet hover sur mobile */
-  }
-  .flip-card:focus .flip-card-inner,
-  .flip-card:focus-within .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-}
-
 /* Éviter le scroll lorsque le menu est ouvert */
 body.menu-ouvert {
   overflow: hidden;
 }
 
+/* Styles pour les appareils mobiles */
 @media screen and (max-width: 768px) {
   /* menu mobile */
   nav {
@@ -394,6 +385,16 @@ body.menu-ouvert {
 
   section:first-of-type {
     padding: calc(var(--header-height) + 30px) 20px 30px;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: none; /* Désactiver l'effet hover sur mobile */
+  }
+
+  /* Toute la carte peut être cliquée pour afficher les détails */
+  .flip-card:focus .flip-card-inner,
+  .flip-card:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
   }
 
   template-footer .footer-contenu {
