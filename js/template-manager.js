@@ -60,9 +60,9 @@ class TemplateFooter extends HTMLElement {
       </div>
       <a href="contact.html" id="btn-connecte" aria-label="Bouton Restons connectés"></a>
       <div class="reseaux-sociaux">
-        <a href="#" id="icone-linkedin" aria-label="LinkedIn"></a>
-        <a href="#" id="icone-github" aria-label="GitHub"></a>
-        <a href="#" id="icone-behance" aria-label="Behance"></a>
+        <a href="https://www.linkedin.com/in/sophie-nadeau-b6724916a/" id="icone-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        <a href="https://github.com/SophieNadeauMus" id="icone-github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        <a href="https://www.behance.net/sophienadeau1" id="icone-behance" aria-label="Behance" target="_blank" rel="noopener noreferrer"></a>
       </div>
     </div>
     <p>© 2026 SN Design. Tous droits réservés.</p>
