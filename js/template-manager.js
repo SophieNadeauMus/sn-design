@@ -9,17 +9,21 @@ class TemplateHeader extends HTMLElement {
       <a href="a-propos.html" id="btn-a-propos" class="btn" aria-label="Bouton À propos"></a>
       <a href="contact.html" id="btn-contact" class="btn" aria-label="Bouton Contact"></a>
     </nav>
-    <a class="menu-icon">
-      <i class="fa-solid fa-bars"></i>
-    </a>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+      <span class="line top"></span>
+      <span class="line middle"></span>
+      <span class="line bottom"></span>
+    </button>
     `;
 
     /***** MENU MOBILE *****/ 
-    const menuIcon = this.querySelector('.menu-icon');
+    const menuIcon = this.querySelector('.menu-toggle');
     const nav = this.querySelector('nav');
 
     menuIcon.addEventListener('click', () => {
-      nav.classList.toggle('active');
+      const isOpen = nav.classList.toggle('active');
+      menuIcon.classList.toggle('active'); // Pour l'animation de l'icône
+      menuIcon.setAttribute('aria-expanded', isOpen);
       document.body.classList.toggle('menu-ouvert');
     });
 
@@ -54,7 +58,7 @@ class TemplateFooter extends HTMLElement {
       <div class="logo-container">
         <a href="index.html" class="logo-animation" aria-label="Logo de SN Design"></a>
       </div>
-      <div id="btn-connecte"></div>  
+      <a href="contact.html" id="btn-connecte" aria-label="Bouton Restons connectés"></a>
       <div class="reseaux-sociaux">
         <a href="#" id="icone-linkedin" aria-label="LinkedIn"></a>
         <a href="#" id="icone-github" aria-label="GitHub"></a>
@@ -83,14 +87,15 @@ class TemplateProjets extends HTMLElement {
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="${projet.image}" width="300" height="300" alt="${projet.titre}" fetchpriority="high">
+            <img src="${projet.image}" width="300" height="300" alt="${projet.titre}">
           </div>
           <div class="flip-card-back">
-            <h3>${projet.titre}</h3>
+            <h4>${projet.titre}</h4>
             <p class="projet-desc">${projet.description}</p>
-            <div> 
-              <p>${projet.logiciels}</p>
-              <p>${projet.date}</p>
+            <div class="projet-infos">
+              <p>Type de projet : ${projet.type}</p> 
+              <p>Logiciels utilisés : ${projet.logiciels}</p>
+              <p>Date de réalisation : ${projet.date}</p>
             </div>
           </div>
         </div>

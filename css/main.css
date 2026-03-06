@@ -9,14 +9,15 @@
   --color-opacity: 0.95;
   /* Typographie */
   --font-family: "Bricolage Grotesque", sans-serif;
-  --h1-size: clamp(3rem, 8vw, 5.61rem);
-  --h2-size: clamp(2rem, 6vw, 3.063rem);
-  --h3-size: clamp(1.75rem, 5vw, 2.438rem);
-  --h4-size: clamp(1.5rem, 4vw, 1.938rem);
-  --h5-size: clamp(1.25rem, 3vw, 1.563rem);
-  --p-size: clamp(1rem, 2vw, 1rem);
-  --small-size: clamp(0.875rem, 1.5vw, 0.875rem);
-  --line-height-titles: 1.2;
+  /* Tailles de police responsives */
+  --h1-size: clamp(3rem, 10vw, 5.653rem);
+  --h2-size: clamp(2.5rem, 7vw, 3.998rem);
+  --h3-size: clamp(2rem, 5vw, 2.827rem);
+  --h4-size: clamp(1.5rem, 3vw, 2rem);
+  --h5-size: clamp(1.25rem, 2vw, 1.414rem);
+  --p-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+  --small-size: 0.707rem;
+  --line-height-titles: 1.1;
   --line-height-text: 1.6;
   /* Pour calculer la hauteur du header dynamiquement */
   --header-height: 0px;
@@ -61,7 +62,7 @@ p {
 
 a {
   font-size: var(--p-size);
-  line-height: 40px;
+  line-height: 1.2;
   color: var(--dark-neutral);
 }
 
@@ -89,6 +90,7 @@ body {
 /* Ajustements des sections */
 section:not(section:first-of-type) {
   width: 80vw;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 50px 0;
 }
@@ -117,6 +119,8 @@ template-header {
   height: 80px;
   width: 80px;
   margin: 0;
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  user-select: none;
 }
 
 nav {
@@ -138,11 +142,41 @@ nav a {
   height: 40px;
 }
 
-/* menu burger caché sur grands écrans */
-.menu-icon {
-  display: none;
-  font-size: 36px;
+/* Styles du conteneur du menu burger */
+.menu-toggle {
+  display: none; /* menu burger caché sur grands écrans */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
   color: var(--light-neutral);
+  z-index: 1001;
+  -webkit-tap-highlight-color: transparent; /* Supprimer le highlight sur mobile */
+  user-select: none;
+}
+
+.menu-toggle .line {
+  background-color: var(--light-neutral);
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin: 8px 0;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animation vers la croix (X) lorsque le menu est ouvert */
+.menu-toggle.active .top {
+  transform: translateY(12px) rotate(45deg);
+}
+.menu-toggle.active .middle {
+  opacity: 0;
+}
+.menu-toggle.active .bottom {
+  transform: translateY(-12px) rotate(-45deg);
 }
 
 /***** styles pour le footer *****/
@@ -197,12 +231,35 @@ template-footer p {
 }
 
 /***** Styles pour le template de la liste de projets *****/
-template-projets {
+template-projets,
+.skeleton-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 60px;
   justify-items: center;
   width: 100%;
+}
+
+/* Cartes "squelette" */
+.skeleton-card {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  background-color: rgb(from var(--dark-neutral) r g b / 0.1);
+  border-radius: 30px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgb(from var(--dark-neutral) r g b / 0.1);
+  }
+  50% {
+    background-color: rgb(from var(--dark-neutral) r g b / 0.2);
+  }
+  100% {
+    background-color: rgb(from var(--dark-neutral) r g b / 0.1);
+  }
 }
 
 /* Animation des cartes de projets */
@@ -238,7 +295,6 @@ template-projets {
 }
 
 .flip-card-front img {
-  max-width: 300px;
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
@@ -262,6 +318,18 @@ template-projets {
   color: var(--dark-neutral);
   border-radius: 30px;
   padding: 10px;
+}
+
+.projet-infos p {
+  font-size: var(--small-size);
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 60px;
+  justify-items: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -305,10 +373,8 @@ body.menu-ouvert {
     transform: translateY(0);
   }
 
-  .menu-icon {
-    display: block;
-    position: relative;
-    z-index: 1001;
+  .menu-toggle {
+    display: block; /* Afficher le menu burger sur petits écrans */
   }
 
   section:not(section:first-of-type) {
@@ -335,8 +401,5 @@ body.menu-ouvert {
 
   .footer-contenu .logo-container {
     justify-content: center;
-  }
-  .flip-card-back p {
-    font-size: var(--small-size);
   }
 }
