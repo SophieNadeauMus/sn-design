@@ -84,7 +84,7 @@ class TemplateProjets extends HTMLElement {
 
     this.innerHTML = `
       ${projetsAAfficher.map(projet => `
-      <div class="flip-card">
+      <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <img src="${projet.image}" width="300" height="300" alt="${projet.titre}">
